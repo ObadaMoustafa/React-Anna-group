@@ -1,12 +1,14 @@
 .App {
   text-align: center;
-  display: flex;
+  max-width: 1200px;
+  min-height: 100vh;
+  /* display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   max-width: 1200px;
   min-height: 100vh;
   gap: 20px;
-  margin-left: 30px;
+  margin-left: 30px; */
 }
 
 .App-logo {
@@ -44,8 +46,9 @@
   }
 }
 
-.productDescription{
-  margin-top: 40px;
+.productDescription a{
+display: flex;
+width: 1200px;
 }
 
 .productDescription img{
@@ -53,8 +56,46 @@
   height: 300px;
   object-fit: contain;
 }
+.description{
+text-overflow: ellipsis;
+width: 250px;  
+}
+
+.filterCategory{
+  width: 1800px;
+  display: flex;
+  flex-direction: row;
+  gap:20px;
+}
+
+.filterCategory p{
+  height: 28px;
+  width:auto;
+  background: grey;
+}
+.filterCategory p:hover{
+  background: rgb(202, 189, 189);
+  cursor: pointer;
+}
+
+.category{
+  border: none;
+  height: 28px;
+}
+
+.category:hover{
+  color:gray;
+  cursor: pointer;
+}
 
 .title{
   width: 1200px;
   text-align: left;
+  display: flex;
+  justify-content: space-around;
+}
+
+.title a{
+  margin-top: 50px;
+  gap:100px;
 }
