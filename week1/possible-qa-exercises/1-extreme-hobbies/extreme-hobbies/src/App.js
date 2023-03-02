@@ -1,15 +1,5 @@
 import './App.css';
-
-const HobbyList = () => {
-   const hobbies = ["Surfing", "Rock climbing", "Mountain biking", "Breakdancing"];
-   return (hobbies.map((item, index) => (
-      <div key={index}>
-         <p>{item}</p>
-      </div>
-   ))
-
-   )
-}
+import HobbyList from '../src/components/hobbyList'
 
 function App() {
    return (

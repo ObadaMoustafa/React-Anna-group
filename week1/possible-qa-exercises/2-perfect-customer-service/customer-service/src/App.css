@@ -1,10 +1,64 @@
 .App {
+   display: flex;
    text-align: center;
    display: flex;
 }
 
+.mainVContainer {
+   display: flex;
+   justify-content: space-evenly;
+}
+
+.content-wrap {
+   display: inline-flex;
+   max-width: 400px;
+   height: 250px;
+   margin: 10px;
+
+}
+
 .content {
-   margin: 15px;
+   display: flex;
+   flex-direction: column;
+   text-align: center;
+}
+
+.image {
+   display: flex;
+   justify-content: center;
+   padding: 5px;
+
+
+}
+
+img {
+   width: 100px;
+   object-fit: contain;
+
+}
+
+.title {
+   display: flex;
+   justify-content: center;
+
+}
+
+.describtion {
+   display: flex;
+   flex-direction: column;
+   text-align: start;
+   padding: 5px;
+
+}
+
+p {
+   text-align: justify;
+   margin: 0px;
+}
+
+
+h2 {
+   margin: 10px 0px 10px 0px;
 }
 
 .App-logo {
