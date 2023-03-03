@@ -1,23 +1,30 @@
 import './products.css';
 
-function Product (item) {
+const Product = (props) => {
     return (
-        <li class="products--item">
+        <li key={props.id} className="products--item">
         <div class="product">
-            <img class="product--image" alt={item.id} src={item.image}/>
-            <span class="product--title" title={item.title}>{item.title}</span>
+            <img className="product--image" src={props.image} alt={props.description} />
+            <span className="product--title" title={props.title}>{props.title}</span>
         </div>   
         </li>
     )
 }
 
-export default function Products(list) {
+const ProductsList = (props) => {
+    const {products, state} = props;
+
+    const filter = state.anyAll ? '' : state.sortCategory
+
+    const filteredList = 
+      filter ? products.filter(product => product.category === filter) : products
+
     return (
-  <ul class="products">
-  {
-      list.map(item=>Product(item))
-  }
-  </ul>)
+      <ul className='products-list'>
+        { filteredList.map(product => Product(product)) }
+      </ul>
+    )
   }
 
+  export default ProductsList;
   

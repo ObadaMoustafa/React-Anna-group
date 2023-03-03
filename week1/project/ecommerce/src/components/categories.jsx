@@ -1,19 +1,31 @@
 import './categories.css';
-import './categories.css';
-import categorynew from "../fake-data/all-categories"
 
-function Category (prop) {
+const Category = (props) => {
+    const {current, state, setState} = props
+    const key = current.slice(6)
+    const className = "categories--item" +  ((key === state.sortCategory) && !state.anyAll ? ' category-sort' : '')
+
+    const changeFilter = (key) => {
+        setState(prevState => {
+            return {
+                sortCategory: key, 
+                isAll: (prevState.sortCategory === key) && !prevState.anyAll
+            }
+        })
+    }
+
     return (
-        <div class="categories--item">{prop}</div>
-    )
-}
-function CategoryList  (prop) {
-    return (<div class="categories">
-        {
-            categorynew.map(item=>Category(item))
-        }
-    </div>
+        <div key={key} className={className} onClick={() => changeFilter(key)}>{current}</div>
     )
 }
 
-export default CategoryList;
+const CategoriesList = (props) => {
+    const {categories, state, setState} = props;
+    return (
+        <div className="categories">
+            {categories.map(current => Category({ current, state, setState }))}
+        </div>
+    )
+}
+
+export default CategoriesList;
