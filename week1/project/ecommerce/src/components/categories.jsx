@@ -1,8 +1,10 @@
+import CategoriesList from '../fake-data/all-categories'
+
 function Categories(props) {
 
-   function onclickFunction(name, id) {
-      const category = name.slice(6 - name.length)
-      props.useStateFunction(category)
+   function getCategoryName(name, id) {
+      const categoryName = name.slice(6 - name.length)
+      props.useStateFunction(categoryName)
       highlightActiveButton(id)
    }
 
@@ -16,7 +18,12 @@ function Categories(props) {
    }
 
    return (
-      <button className='button' key={props.ind} id={props.ind} onClick={() => { onclickFunction(props.name, props.ind) }}>{props.name}</button>
+      <>
+         {CategoriesList.map((category, index) => {
+            return <button className='button' key={index} id={index} onClick={() => { getCategoryName(category, index) }}>{category}</button>
+         })}
+      </>
+
    )
 }
 
