@@ -1,6 +1,8 @@
-export default [
-  "FAKE: electronics",
-  "FAKE: jewelery",
-  "FAKE: men's clothing",
-  "FAKE: women's clothing",
+const CategoriesList = [
+   "FAKE: electronics",
+   "FAKE: jewelery",
+   "FAKE: men's clothing",
+   "FAKE: women's clothing",
 ];
+
+export default CategoriesList;
