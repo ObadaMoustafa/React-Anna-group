@@ -1,29 +1,38 @@
 import CategoriesList from '../fake-data/all-categories'
+import { useRef } from 'react'
 
 function Categories(props) {
+   const previousCategoryRef = useRef('All items');
+   const activeCategoryRef = useRef('All items');
 
-   function getCategoryName(name, id) {
-      const categoryName = name.slice(6 - name.length)
-      props.useStateFunction(categoryName)
-      highlightActiveButton(id)
+   const getCategoryName = (name) => name.slice(6 - name.length)
+
+   function setCategoryName(actCategory) {
+      props.useStateFunction((prevCategory) => {
+         previousCategoryRef.current = prevCategory;
+         activeCategoryRef.current = actCategory;
+         return actCategory
+      })
    }
 
-   function highlightActiveButton(id) {
-      const previousActiveButton = document.getElementsByClassName('active');
-      if (previousActiveButton.length !== 0) {
-         previousActiveButton[0].classList.remove('active')
+   function setClassName(checkingCategory, previous, active) {
+      if (active === 'All items' || checkingCategory === previous || checkingCategory !== active) {
+         return 'button'
+      } else {
+         return 'button active';
       }
-      const clickedButton = document.getElementById(id);
-      clickedButton.classList.add('active')
    }
 
    return (
-      <>
-         {CategoriesList.map((category, index) => {
-            return <button className='button' key={index} id={index} onClick={() => { getCategoryName(category, index) }}>{category}</button>
-         })}
-      </>
-
+      <div className='categories-container'>
+         <div className='categories'>
+            {CategoriesList.map((category, index) => {
+               const categoryName = getCategoryName(category);
+               const className = setClassName(categoryName, previousCategoryRef.current, activeCategoryRef.current)
+               return <button className={className} key={index} id={index} onClick={() => { setCategoryName(categoryName) }}>{categoryName}</button>
+            })}
+         </div>
+      </div>
    )
 }
 

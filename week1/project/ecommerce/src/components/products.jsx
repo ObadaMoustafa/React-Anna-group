@@ -1,20 +1,21 @@
 import ProductList from '../fake-data/all-products'
 
-// const CategoryName = ProductCategory.CategoryName
-// console.log(CategoryName)
-
 function itemsRender(itemsList) {
    return (
-      itemsList.map((item, index) => {
-         return (
-            <div className='itemBlockWrap' key={index}>
-               <div className='itemBlock'>
-                  <img className='itemImage' src={item.image} alt={item.title} />
-                  <div className='itemTitle' >{item.title}</div>
-               </div>
-            </div>
-         )
-      })
+      <div className='productList-conteiner'>
+         <div className='productList'>
+            {itemsList.map((item, index) => {
+               return (
+                  <div className='itemBlockWrap' key={index}>
+                     <div className='itemBlock'>
+                        <img className='itemImage' src={item.image} alt={item.title} />
+                        <div className='itemTitle' >{item.title}</div>
+                     </div>
+                  </div>
+               )
+            })}
+         </div>
+      </div>
    )
 }
 

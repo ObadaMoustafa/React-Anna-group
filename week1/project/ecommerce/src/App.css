@@ -16,10 +16,13 @@
 }
 
 .categories {
+   display: flex;
+   flex-wrap: wrap;
    border-radius: 15px;
    background: #c1cbdf;
    max-width: 800px;
    padding: 5px;
+   justify-content: center;
 }
 
 .productList-conteiner {
@@ -92,7 +95,7 @@
 }
 
 .button:hover {
-   background: #82c7ef;
+   background: #b4def6;
    border: 1px solid rgb(176, 174, 174);
 }
 
