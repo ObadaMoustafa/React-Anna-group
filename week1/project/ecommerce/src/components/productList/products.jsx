@@ -1,4 +1,5 @@
-import ProductList from '../fake-data/all-products'
+import ProductList from '../../fake-data/all-products'
+import './productList.css'
 
 function itemsRender(itemsList) {
    return (
@@ -6,8 +7,8 @@ function itemsRender(itemsList) {
          <div className='productList'>
             {itemsList.map((item, index) => {
                return (
-                  <div className='itemBlockWrap' key={index}>
-                     <div className='itemBlock'>
+                  <div className='itemBlockWrap' >
+                     <div className='itemBlock' key={index}>
                         <img className='itemImage' src={item.image} alt={item.title} />
                         <div className='itemTitle' >{item.title}</div>
                      </div>

@@ -1,5 +1,6 @@
-import CategoriesList from '../fake-data/all-categories'
+import CategoriesList from '../../fake-data/all-categories'
 import { useRef } from 'react'
+import './productList.css'
 
 function Categories(props) {
    const previousCategoryRef = useRef('All items');
