@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useState } from "react";
 import Button from "./Button";
 import Count from "./Count";
