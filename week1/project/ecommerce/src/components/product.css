@@ -1,0 +1,27 @@
+.products-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+.product-item {
+  display: list-item;
+  text-align: -webkit-match-parent;
+  margin: 8px;
+}
+.product-item-block {
+  display: flex;
+  flex-direction: column;
+}
+.product-img {
+  margin-bottom: auto;
+  margin-top: auto;
+  height: 300px;
+  object-fit: contain;
+  width: 100%;
+}
+.product-title {
+  overflow: hidden;
+  padding-top: 8px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
