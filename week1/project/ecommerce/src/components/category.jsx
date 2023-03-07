@@ -1,4 +1,8 @@
-function Category(category) {
-  return <button className="category-btn">{category.name}</button>;
+function Category({ name, onClick }) {
+  return (
+    <button className="category-btn" onClick={onClick}>
+      {name}
+    </button>
+  );
 }
 export default Category;

@@ -1,6 +1,5 @@
 import "./product.css";
-function Product(productInfo) {
-  const { img, id, title } = productInfo;
+function Product({ id, img, title }) {
   return (
     <li className="product-item" key={id}>
       <div className="product-item-block">
@@ -11,3 +10,5 @@ function Product(productInfo) {
   );
 }
 export default Product;
+
+

@@ -4,18 +4,17 @@
   list-style: none;
 }
 .product-item {
-  display: list-item;
-  text-align: -webkit-match-parent;
   margin: 8px;
 }
 .product-item-block {
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 .product-img {
   margin-bottom: auto;
   margin-top: auto;
-  height: 300px;
+  max-height: 300px;
   object-fit: contain;
   width: 100%;
 }
