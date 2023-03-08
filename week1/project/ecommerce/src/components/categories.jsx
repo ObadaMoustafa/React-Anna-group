@@ -20,6 +20,7 @@ const Category = (props) => {
     )
 }
 
+
 const CategoryList = (props) => {
     const {categories, state, setState} = props;
     return (

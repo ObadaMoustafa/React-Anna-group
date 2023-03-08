@@ -1,8 +1,8 @@
 .categories {
-    display: flex;
-    /*justify-content: space-between;*/
-    /*justify-content: center;*/
-    justify-content: space-around;
+  display: flex;
+  /*justify-content: space-between;*/
+  /*justify-content: center;*/
+  justify-content: space-around;
     font-weight: 700;
     border-radius: 12px;
     padding: 12px;
