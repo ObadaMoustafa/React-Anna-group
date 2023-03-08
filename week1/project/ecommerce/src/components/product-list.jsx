@@ -5,12 +5,13 @@ import "./product.css";
 function ProductList(props) {
   const activeCategory = props;
   const getFilter = activeCategory === "All products" ? "" : activeCategory;
-//   console.log(getFilter);
+  //   console.log(getFilter);
   const filterName = getFilter.activeCategory;
-//   console.log(filterName);
-  const filteredList = filterName
-    ? products.filter((product) => product.category === filterName)
-    : products;
+  //   console.log(filterName);
+  const filteredList =
+    filterName !== "All products"
+      ? products.filter((product) => product.category === filterName)
+      : products;
 
   return (
     <ul className="products-list">
@@ -23,27 +24,3 @@ function ProductList(props) {
   );
 }
 export default ProductList;
-
-///////////////////////////////////////////////////////////////////////
-// Пример отображения с Product from Product List
-///////////////////////////////////////////////////////////////////////
-// function ProductList(props) {
-
-//     return (
-//       <ul className="products-list">
-//         {products.map((item) => {
-//           const { id, image, title } = item;
-//           //   if (props.activeCategory !== "All products") {
-//           //       const filteredProducts = products.filter((product) => {
-//           //           return
-//           //       })
-//           //   }
-
-//           return <Product key={id} title={title} img={image} />;
-//         })}
-//       </ul>
-//     );
-// }
-// export default ProductList;
-
-// activeCategory;

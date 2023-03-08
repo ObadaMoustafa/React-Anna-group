@@ -10,5 +10,3 @@ function Product({ id, img, title }) {
   );
 }
 export default Product;
-
-

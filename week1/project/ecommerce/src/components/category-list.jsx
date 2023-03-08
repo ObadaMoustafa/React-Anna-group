@@ -6,13 +6,19 @@ function CategoryList(props) {
   function chooseCategory(name) {
     const categoryName = name.slice(6);
     // console.log(categoryName);
-    props.setCategoryName(categoryName);
+    const checkedCategoryState = (prevState) => {
+      if (categoryName === prevState) {
+        return "All products";
+      } else {
+        return categoryName;
+      }
+    };
+    props.setCategoryName(checkedCategoryState);
   }
 
   return (
     <div className="categories-block">
       {categoryList.map((category, i) => (
-        //   const categoryName = getCategoryName(category);
         <Category
           name={category}
           key={i}
