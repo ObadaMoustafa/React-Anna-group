@@ -4,10 +4,9 @@
     font-weight: 700;
     border-radius: 12px;
     padding: 12px;
-    color: #057974;
+    color: #048780;
     border: 3px solid #0ce9cf;
     margin-bottom: 10px;
-   
   }
   
   .category-item {
@@ -30,6 +29,7 @@
 
   .category-collection {
     border: 3px;
+    background-color: #d6f4ee;
   }
 
 
