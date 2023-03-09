@@ -1,7 +1,7 @@
 import "./App.css";
 import { useState } from "react";
-import CategoryList from "./components/category-list";
-import ProductList from "./components/product-list";
+import CategoryList from "./components/CategoryList";
+import ProductList from "./components/ProductList";
 
 function App() {
   const [category, setCategory] = useState("All products");

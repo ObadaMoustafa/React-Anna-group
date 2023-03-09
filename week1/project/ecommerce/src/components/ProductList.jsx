@@ -1,5 +1,5 @@
 import products from "../fake-data/all-products";
-import Product from "./product";
+import Product from "./Product";
 import "./product.css";
 
 function ProductList(props) {

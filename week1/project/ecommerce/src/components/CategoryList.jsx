@@ -1,4 +1,4 @@
-import Category from "./category";
+import Category from "./Category";
 import categoryList from "../fake-data/all-categories";
 import "./category.css";
 
@@ -13,6 +13,7 @@ function CategoryList(props) {
         return categoryName;
       }
     };
+
     props.setCategoryName(checkedCategoryState);
   }
 
@@ -25,6 +26,7 @@ function CategoryList(props) {
           onClick={() => {
             chooseCategory(category);
           }}
+          className="category-btn"
         />
       ))}
     </div>
