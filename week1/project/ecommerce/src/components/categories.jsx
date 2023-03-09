@@ -1,33 +1,25 @@
-import './categories.css';
+    import './Categories.css';
+    import Category from './Category'
 
-const Category = (props) => {
-    const {current, state, setState} = props
-    const key = current.slice(6)
-
-    const className = 'category--item' + ((key === state.pickCategory) && !state.itsEver ? 'category-sort' : '')
-
-    const changeFilter = (key) => {
+function Categories ({categories, state, setState}) {
+    
+    function changeFilter(newCategory) {
         setState(prevState => {
             return {
-                pickCategory: key, 
-                itsEver: (prevState.pickCategory === key) && !prevState.itsEver
+                collectionCategory: newCategory, 
+                itsEver: (prevState.collectionCategory === newCategory) && !prevState.itsEver
             }
         })
     }
-
-    return (
-        <div key={key} className={className} onClick={() => changeFilter(key)}>{current}</div>
-    )
-}
-
-
-const CategoryList = (props) => {
-    const {categories, state, setState} = props;
+    
     return (
         <div className="categories">
-            {categories.map(current => Category({ current, state, setState }))}
+            {categories.map((item, index) => {
+                const className = ((item === state.collectionCategory) && !state.itsEver ? 'category-collection' : '')
+                return <Category key={index} className={className} data={item} onClick={changeFilter} />
+            })}
         </div>
     )
 }
 
-export default CategoryList;
+export default Categories;
