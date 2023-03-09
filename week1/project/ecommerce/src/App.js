@@ -10,7 +10,7 @@ function App() {
    return (
       <div className="App">
          <h2 className='headTitle'>PRODUCTS</h2>
-         <Categories useStateFunction={setCategory} />
+         <Categories useStateFunction={setCategory} activeCategory={category} />
          <Products prodCategory={category} />
       </div>
    );
