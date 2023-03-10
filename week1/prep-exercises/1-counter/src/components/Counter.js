@@ -21,8 +21,8 @@ function Counter() {
     return (
         <div>
             < Count value={count} />
-            < Button setFunc={increment} step={1} name="Increment by 1" /> 
-            < Button setFunc={decrement} step={2} name="Decrement by 2" /> 
+            < Button setFunc={increment} step={1} name="Increment 1!" /> 
+            < Button setFunc={decrement} step={2} name="Decrement 2!" /> 
             <div>{feedback}</div>
         </div>
     )

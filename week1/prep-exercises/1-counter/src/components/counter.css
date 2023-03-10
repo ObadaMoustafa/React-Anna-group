@@ -1,14 +1,16 @@
-
-
 .Counter-btn {
     font-family: inherit;
     font-size: calc(10px + 1vmin);
-    border-radius: 8px;
-    margin : 3px;
+    border: 3px solid #78dee3;
+    border-radius: 10px;
+    margin : 20px;
     padding: 5px;
     width : 150px;
+    background-color: #e4b3cc;
+    color: #120238;
 }
 
 .Counter {
-    font-size: calc(10px + 4vmin);;
+    font-size: calc(10px + 4vmin);
+    color: #1958ce;
 }
