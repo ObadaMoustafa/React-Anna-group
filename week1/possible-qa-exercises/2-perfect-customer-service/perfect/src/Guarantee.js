@@ -3,7 +3,7 @@
 
 export default [
     {
-        image: "require(./images/sakura.jpg)",
+        image: "https://plus.unsplash.com/premium_photo-1671129471248-82d1ba9dab31?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1407&q=80",
         title: "mountain",
         description: "beautiful mountain in the evening",
     },

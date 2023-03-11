@@ -9,7 +9,7 @@ function App() {
         return(
           <div key = {index}>
             <div>
-            <img src={item.image}></img>
+            <img src = {item.image}></img>
             <p>{item.title}</p>
             <p>{item.description}</p>
             </div>
