@@ -1,5 +1,5 @@
 import CategoriesList from '../../fake-data/all-categories'
-import Category from './category'
+import Category from './Category'
 import './productList.css'
 
 function Categories({ onClick, activeCategory }) {

@@ -1,6 +1,6 @@
 import './App.css';
-import Categories from './components/productList/categories'
-import Products from './components/productList/products'
+import Categories from './components/productList/Categories'
+import Products from './components/productList/Products'
 import { useState } from 'react';
 
 
