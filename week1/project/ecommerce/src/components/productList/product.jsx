@@ -1,9 +1,9 @@
-export default function Product(props) {
+export default function Product({ item }) {
    return (
       <div className='itemBlockWrap'>
          <div className='itemBlock'>
-            <img className='itemImage' src={props.item.image} alt={props.item.title} />
-            <div className='itemTitle' >{props.item.title}</div>
+            <img className='itemImage' src={item.image} alt={item.title} />
+            <div className='itemTitle' >{item.title}</div>
          </div>
       </div>
    )

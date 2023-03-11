@@ -1,11 +1,11 @@
 import ProductList from '../../fake-data/all-products'
-import Product from './product'
+import Product from './Product'
 import './productList.css'
 
-function Products(props) {
+function Products({ prodCategory }) {
    let items = ProductList
-   if (props.prodCategory !== 'All items') {
-      items = ProductList.filter((product) => product.category === props.prodCategory)
+   if (prodCategory !== 'All items') {
+      items = ProductList.filter((product) => product.category === prodCategory)
    }
 
    return (

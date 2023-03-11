@@ -1,11 +1,7 @@
-export default function Category(props) {
+export default function Category({ category, onClick, activeCategory }) {
 
-   function setCategoryName(actCategory) {
-      props.useStateFunction(actCategory)
-   }
+   const categoryName = category.slice(6 - category.length)
+   const className = (categoryName === activeCategory) ? 'button active' : 'button'
 
-   const categoryName = props.category.slice(6 - props.category.length)
-   const className = (categoryName === props.activeCategory) ? 'button active' : 'button'
-
-   return <button className={className} onClick={() => { setCategoryName(categoryName) }}>{categoryName}</button>
+   return <button className={className} onClick={() => { onClick(categoryName) }}>{categoryName}</button>
 }
