@@ -1,5 +1,5 @@
 import Category from "./Category";
-// import categoryList from "../fake-data/all-categories";
+
 import "./components-css/category.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -50,7 +50,11 @@ function CategoryList(props) {
           onClick={() => {
             chooseCategory(category);
           }}
-          className="category-btn"
+          className={
+            props.activeCategory === category
+              ? "category-btn-selected"
+              : "category-btn"
+          }
         />
       ))}
     </div>
