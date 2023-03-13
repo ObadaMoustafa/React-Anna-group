@@ -1,0 +1,13 @@
+.categories-block {
+  display: flex;
+}
+.category-btn {
+  background-color: #efeff0;
+  cursor: pointer;
+  font-weight: 700;
+  margin: 2px;
+  padding: 12px;
+}
+.category-btn-selected {
+  background-color: #bdbdc1;
+}
