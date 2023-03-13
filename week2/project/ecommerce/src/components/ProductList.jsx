@@ -7,7 +7,7 @@ function ProductList({ activeCategory }) {
   const [productsData, setProductsData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  console.log(activeCategory);
+  // console.log(activeCategory);
   // // var 0
 
   const getProductsData = useCallback(async () => {
@@ -47,7 +47,7 @@ function ProductList({ activeCategory }) {
   // }
   if (loading) return "Loading ...";
   if (error) return "Error";
-  console.log(productsData);
+  // console.log(productsData);
 
   // ////////////////////////////////////////////////////////////////////////
   // all products
