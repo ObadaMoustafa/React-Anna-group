@@ -1,0 +1,15 @@
+.product-card-details {
+  display: block;
+  width: 70%;
+  margin: auto;
+}
+.product-card-title {
+  text-decoration: underline;
+}
+.product-card-img {
+  max-height: 400px;
+}
+.product-card-description {
+  display: block;
+  text-align: center;
+}
