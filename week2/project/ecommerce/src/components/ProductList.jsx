@@ -41,8 +41,8 @@ function ProductList({ activeCategory }) {
       {productsData.map((item) => {
         const { id, image, title } = item;
         return (
-          <Link to={`/products/${id}`}>
-            <Product key={id} title={title} img={image} />
+          <Link to={`/products/${id}`} key={id}>
+            <Product title={title} img={image} id={id} />
           </Link>
         );
       })}
