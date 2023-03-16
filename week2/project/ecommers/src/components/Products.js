@@ -46,9 +46,9 @@ export default function Products({activeCategory}) {
          {prodData.map((item) => {
           const{id, image, title} = item;
     return(
-      <Link to={`/oneproduct/${id}`} key = {id}>
+      // <Link to={`/oneproduct/${id}`} key = {id}>
       <ListProduct key={id} title={title} img={image} id={id} />
-      </Link>
+      // </Link>
     )}
     )}
     </ul>

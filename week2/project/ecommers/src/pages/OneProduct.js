@@ -4,9 +4,10 @@ import { useParams } from 'react-router-dom';
 import Productdetailcard from '../components/Productdetail';
 
 export default function Oneproduct() {
-  const [prodId] = useParams();
+  const {prodId} = useParams();
   const [prod, setProdData] = useState();
   const [isLoading, setIsLoading] = useState(true);
+ 
   const getProductsDescription = 
   useCallback(
     async () => {
