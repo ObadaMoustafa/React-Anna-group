@@ -2,6 +2,7 @@
 import categories from './fake-data/all-categories'
 // import './styles/Style-category'
 import "./Style/category.css"
+import ListCategory from './Button';
 
 
 export default function Category(props) {
@@ -15,14 +16,10 @@ export default function Category(props) {
         return getCategoryName;
       }
     };
-    props.useStateCategory(checkCategoryState);
+    props.choosedCategory(checkCategoryState);
   }
   
-  function ListCategory({name, onClick}) {
-    return(
-        <button className="categoty-btn" onClick={onClick}>{name}</button>
-    );
-}
+
 
   return(
     <div className='categories'>
