@@ -1,23 +1,24 @@
 import React, {useState, useEffect} from 'react';
-// import categories from './fake-data/all-categories'
-// import './styles/Style-category'
 import "./Style/category.css"
+import ListCategory from './Button';
 
-// `https://fakestoreapi.com/products/category/<selectedCategory>`
-// `https://fakestoreapi.com/products`
+
 export default function Category(props) {
   
   const[categoryName, setCategor] = useState([]);
+  const[isLoading, setLoading] = useState(true);
   useEffect(()=> {
       fetch('https://fakestoreapi.com/products/categories')
       .then((response) => response.json())
       .then((categoryName) => setCategor(categoryName))
+      setTimeout(() => {
+              setLoading(false);
+            }, 1000)
   },[]);
 
-console.log(categoryName);
+
 function selectCategory(name){
 
-    // const getCategoryName =  name.slice(6);
     const checkCategoryState = (previousState) => {
       if (name === previousState) {
         return "All";
@@ -25,16 +26,12 @@ function selectCategory(name){
         return name;
       }
     };
-    props.useStateCategory(checkCategoryState);
+    props.choosedCategory(checkCategoryState);
   }
-  
-  function ListCategory({name, onClick}) {
-    return(
-        <button className="categoty-btn" onClick={onClick}>{name}</button>
-    );
-}
 
   return(
+    <div>
+      {isLoading ? <div></div> :
     <div className='categories'>
          {categoryName.map((category, index) => (
         <ListCategory
@@ -45,6 +42,8 @@ function selectCategory(name){
         }}
         />
     ))}
+    </div>
+}
     </div>
   );
 }

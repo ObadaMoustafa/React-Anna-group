@@ -1,17 +1,22 @@
-import {useState} from 'react';
-import Category from './components/Category';
-import Products from './components/Products';
+
+import OneProduct from './pages/OneProduct'
 import './App.css';
+import {Routes, Route} from 'react-router-dom';
+import Homepage from './pages/Homepage';
 
 function App() {
-  const [category, setCategory] = useState('All');
   return (
     <div className="App">
-      <h1>Products</h1>
-      <Category useStateCategory={setCategory} />
-      <Products activeCategory={category} /> 
+
+      <Routes>
+        
+         <Route path="/" element={<Homepage />} />
+         <Route path="/oneproduct/:prodId" element={<OneProduct />} />
+      </Routes>
     </div>
+  
   );
+ 
 }
 
 export default App;
