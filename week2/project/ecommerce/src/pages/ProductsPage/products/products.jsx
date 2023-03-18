@@ -1,13 +1,13 @@
 import Product from './product'
-import React from 'react'
-import ErrorMessage from '../common/ErrorMessage'
-import './css/product.css'
-import Spinner from '../common/Spinner/Spinner'
+import React, { useState } from 'react'
+import ErrorMessage from '../../../components/common/Error/ErrorMessage'
+import '../css/product.css'
+import Spinner from '../../../components/common/Spinner/Spinner'
 
 function Products({ prodCategory }) {
-   const [productList, setProductList] = React.useState([])
-   const [isLoading, setIsLoading] = React.useState(false);
-   const [errorObj, setErrorObj] = React.useState({ isError: false, message: '' })
+   const [productList, setProductList] = useState([])
+   const [isLoading, setIsLoading] = useState(false);
+   const [errorObj, setErrorObj] = useState({ isError: false, message: '' })
 
 
    async function getProductList() {

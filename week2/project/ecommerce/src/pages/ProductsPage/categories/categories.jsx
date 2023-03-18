@@ -1,15 +1,15 @@
-import React from 'react'
-import ErrorMessage from '../common/ErrorMessage';
+import React, { useState, useEffect } from 'react'
+import ErrorMessage from '../../../components/common/Error/ErrorMessage';
 import Category from './category'
-import Spinner from '../common/Spinner/Spinner'
-import './css/product.css'
+import Spinner from '../../../components/common/Spinner/Spinner'
+import '../css/product.css'
 
 function Categories({ onClick, activeCategory }) {
-   const [CategoriesList, setCategoriesList] = React.useState([]);
-   const [isLoading, setIsLoading] = React.useState(false);
-   const [errorObj, setErrorObj] = React.useState({ isError: false, message: '' })
+   const [CategoriesList, setCategoriesList] = useState([]);
+   const [isLoading, setIsLoading] = useState(false);
+   const [errorObj, setErrorObj] = useState({ isError: false, message: '' })
 
-   React.useEffect(() => { getCategoriesList() }, []);
+   useEffect(() => { getCategoriesList() }, []);
 
    async function getCategoriesList() {
       try {
