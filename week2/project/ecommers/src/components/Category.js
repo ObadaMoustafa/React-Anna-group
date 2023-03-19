@@ -5,23 +5,16 @@ import ErrorMessage from '../pages/ErrorMessage';
 
 export default function Category(props) {
   
-  const[categoryName, setCategor] = useState([]);
+  const[categoryName, setCategory] = useState([]);
   const[isLoading, setLoading] = useState(true);
   const [errorObj, setErrorObj] = useState({ isError: false, message: '' })
-  useEffect(()=> {
-      fetch('https://fakestoreapi.com/products/categories')
-      .then((response) => response.json())
-      .then((categoryName) => setCategor(categoryName))
-      setTimeout(() => {
-              setLoading(false);
-            }, 1000)
-  },[]);
+  useEffect(()=> {CategoriesList()}, []);
 async function CategoriesList() {
   try{
     setLoading(true);
     const prom = await fetch('https://fakestoreapi.com/products/categories');
     const data = await prom.json();
-    setCategor(data);
+    setCategory(data);
   }
   catch(error) {
     setErrorObj({ isError: true, message: error.message })

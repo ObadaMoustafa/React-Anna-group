@@ -1,6 +1,6 @@
 import React from 'react'
 import './Style/products.css'
-import {useState, useEffect, useCallback} from 'react';
+import {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import ErrorMessage from '../pages/ErrorMessage';
 
@@ -29,10 +29,10 @@ export default function Products({activeCategory}) {
       }
     useEffect(() => {getProducts()}, [activeCategory, getProducts])
         
-  function ListProduct({id, img, title}) {
+  function Product({id, img, title}) {
  
     return(
-      <div>
+      <>
           {errorObj.isError && <ErrorMessage errorMsg={errorObj.message} />}
         <Link to = {`/oneproduct/${id}`}  key={id}>
         <li className='products'>
@@ -43,7 +43,7 @@ export default function Products({activeCategory}) {
         </li>
         </Link>
   
-        </div>
+        </>
     );
 }
   return ( 
@@ -53,7 +53,7 @@ export default function Products({activeCategory}) {
          {prodData.map((item) => {
           const{id, image, title} = item;
     return(
-      <ListProduct key={id} title={title} img={image} id={id} />
+      <Product key={id} title={title} img={image} id={id} />
 
     )}
     )}
