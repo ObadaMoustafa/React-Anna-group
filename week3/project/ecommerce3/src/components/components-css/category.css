@@ -1,0 +1,19 @@
+.categories-block {
+  display: flex;
+}
+.category-btn {
+  width: 100px;
+  height: 50px;
+  background-color: #efeff0;
+  cursor: pointer;
+  font-weight: 700;
+  margin: 2px;
+}
+.category-btn-selected {
+  width: 100px;
+  height: 50px;
+  background-color: #bdbdc1;
+  cursor: pointer;
+  font-weight: 700;
+  margin: 2px;
+}
