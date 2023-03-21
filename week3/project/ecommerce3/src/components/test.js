@@ -1,43 +1,19 @@
 <h1>Product List Test fetch</h1>;
 
-// ////////////////////////////////////////////////////////////////////////
-// all products
-// useEffect(() => {
-//   getProductsData();
-// }, [selectedCategory]);
-// async function getProductsData() {
-//   await axios("https://fakestoreapi.com/products")
-//     .then((responce) => {
-//       setProductsData(responce.data);
-//     })
-//     .catch((error) => {
-//       console.error("Error fetching data: ", error);
-//       setError(error);
-//     })
-//     .finally(() => {
-//       setLoading(false);
-//     });
-// }
+/////////////////////----------AXIOS_start__fromProductList.JSX---------//////////////////////////////
+// const [loading, setLoading] = useState(true);
+// const [error, setError] = useState(null);
+// // console.log(activeCategory);
 
-// if (loading) return "Loading ...";
-// if (error) return "Error";
-// console.log(productsData);
+// const getProductsData = useCallback(async () => {
+//   const defineRequestSource =
+//     activeCategory !== "All products"
+//       ? `https://dummyjson.com/products/category/${activeCategory}`
+//       : "https://dummyjson.com/products";
 
-// ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// // var 1
-// const defineRequestSource =
-//   selectedCategory !== "All products"
-//     ? `https://fakestoreapi.com/products/category/${selectedCategory}`
-//     : "https://fakestoreapi.com/products";
-
-// useEffect(() => {
-//   getProductsData();
-// }, [selectedCategory]);
-
-// async function getProductsData() {
 //   await axios(defineRequestSource)
-//     .then((responce) => {
-//       setProductsData(responce.data);
+//     .then((response) => {
+//       setProductsData(response.data.products);
 //     })
 //     .catch((error) => {
 //       console.error("Error fetching data: ", error);
@@ -46,52 +22,61 @@
 //     .finally(() => {
 //       setLoading(false);
 //     });
-// }
-// if (loading) return "Loading ...";
-// if (error) return "Error";
-// console.log(productsData);
-
-// getProductsData();
-
-// ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// // 2
+// }, [activeCategory]);
 // useEffect(() => {
-//   getProductsData2();
-// }, [selectedCategory]);
-// async function getProductsData2() {
-//   selectedCategory !== "All products"
-//     ? await axios(
-//         `https://fakestoreapi.com/products/category/${selectedCategory}`
-//       )
-//     : await axios("https://fakestoreapi.com/products")
+//   getProductsData();
+// }, [activeCategory, getProductsData]);
 
-//         .then((responce) => {
-//           setProductsData(responce.data);
-//         })
-//         .catch((error) => {
-//           console.error("Error fetching data: ", error);
-//           setError(error);
-//         })
-//         .finally(() => {
-//           setLoading(false);
-//         });
-// }
 // if (loading) return "Loading ...";
 // if (error) return "Error";
 // console.log(productsData);
-// ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////----------AXIOS_end----------///////////////////////////////////////////////////////
 
-// var 3
+/////////////////////////////////////////----------AXIOS_start--from ProductDetailsPage----------///////////////////////////////////////////////////////
+// const [loading, setLoading] = useState(true);
+// const [error, setError] = useState(null);
+// const getProductDetails = useCallback(async () => {
+//   await axios(`https://dummyjson.com/products/${productId}`)
+//       //   await axios(`https://fakestoreapi.com/products/${productId}`)
+//           .then((response) => {
+//             setProduct(response.data);
+//           })
+//           .catch((error) => {
+//             console.error("Error fetching data: ", error);
+//             setError(error);
+//           })
+//           .finally(() => {
+//             setLoading(false);
+//           });
+//       }, [productId]);
+//       useEffect(() => {
+//         getProductDetails();
+//       }, [productId, getProductDetails]);
 
-// const getProductsData3 = async () => {
-//   const res =
-//     selectedCategory !== "All products"
-//       ? await axios(
-//           `https://fakestoreapi.com/products/category/${selectedCategory}`
-//         )
-//       : await axios("https://fakestoreapi.com/products");
-//   setProductsData(res)
+//       if (loading) return "Loading ...";
+//       if (error) return "Error!";
+//     //   console.log(product);
+//     //   console.log(productId);
+/////////////////////////////////////////----------AXIOS_end----------////////////////////////////////////////
+
+/////////////////////////////////////////----------AXIOS_start from Category List----------///////////////////////////////////////////////////////
+
+// const [loading, setLoading] = useState(false);
+// const [error, setError] = useState(null);
+
+// useEffect(() => {
+//   getCategoriesData();
+// }, []);
+
+// async function getCategoriesData() {
+//   setLoading(true);
+//   // await axios("https://fakestoreapi.com/products/categories")
+//   await axios("https://dummyjson.com/products/categories")
+//     .then((response) => {
+//       // console.log(response);
+//       setCategoriesData(response.data);
+//     })
+
 //     .catch((error) => {
 //       console.error("Error fetching data: ", error);
 //       setError(error);
@@ -99,10 +84,8 @@
 //     .finally(() => {
 //       setLoading(false);
 //     });
-// };
-//   useEffect(() => {
-//     getProductsData3();
-//   }, [selectedCategory, getProductsData3]);
+// }
+// // console.log(categoriesData);
 // if (loading) return "Loading ...";
-// if (error) return "Error";
-// console.log(productsData);
+// if (error) return "Error!";
+/////////////////////////////////////////----------AXIOS_end----------///////////////////////////////////////////////////////

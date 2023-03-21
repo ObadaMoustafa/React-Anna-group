@@ -2,14 +2,13 @@ import Category from "./Category";
 
 import "./components-css/category.css";
 import { useEffect, useState } from "react";
-import axios from "axios";
+
 import ErrorMsg from "./ErrorMsg";
 import Loading from "./Loading";
 
 function CategoryList(props) {
   const [categoriesData, setCategoriesData] = useState(null);
-  // const [loading, setLoading] = useState(false);
-  // const [error, setError] = useState(null);
+
   const [errorObj, setErrorObj] = useState({ isError: true, msg: "" });
   const [isLoading, setIsLoading] = useState(false);
 
@@ -33,33 +32,6 @@ function CategoryList(props) {
   useEffect(() => {
     getCategoriesData();
   }, []);
-
-  /////////////////////////////////////////----------AXIOS_start----------///////////////////////////////////////////////////////
-  // useEffect(() => {
-  //   getCategoriesData();
-  // }, []);
-
-  // async function getCategoriesData() {
-  //   setLoading(true);
-  //   // await axios("https://fakestoreapi.com/products/categories")
-  //   await axios("https://dummyjson.com/products/categories")
-  //     .then((response) => {
-  //       // console.log(response);
-  //       setCategoriesData(response.data);
-  //     })
-
-  //     .catch((error) => {
-  //       console.error("Error fetching data: ", error);
-  //       setError(error);
-  //     })
-  //     .finally(() => {
-  //       setLoading(false);
-  //     });
-  // }
-  // // console.log(categoriesData);
-  // if (loading) return "Loading ...";
-  // if (error) return "Error!";
-  /////////////////////////////////////////----------AXIOS_end----------///////////////////////////////////////////////////////
 
   function chooseCategory(name) {
     const checkedCategoryState = (prevState) => {
@@ -95,17 +67,3 @@ function CategoryList(props) {
   );
 }
 export default CategoryList;
-
-///////////////////____Working fetch without errors & loading______ ///////////////////
-// async function getCategoriesData() {
-//   const response = await fetch(`https://dummyjson.com/products/categories`);
-//   const data = await response.json();
-//   setCategoriesData(data);
-// }
-// useEffect(() => {
-//   getCategoriesData();
-// }, []);
-
-// useEffect(() => {
-//   console.log(categoriesData);
-// }, [categoriesData]);
