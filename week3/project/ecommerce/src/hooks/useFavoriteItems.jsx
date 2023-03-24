@@ -1,29 +1,28 @@
-import { useState, useContext } from 'react'
+import { useContext } from 'react'
 import { FavoriteIdItemContext } from '../contexts/FavoriteIdItemContext';
 import svgReg from '../images/heart-regular.svg'
 import svgSol from '../images/heart-solid.svg';
 
-export default function useFavoriteItems() {
+export default function useFavoriteItems(item) {
 
-   const { idFavoriteItem, setIdFavoriteItem } = useContext(FavoriteIdItemContext);
-   const [svgIcon, setSvgIcon] = useState(svgReg)
+   const { idFavoriteItems, setIdFavoriteItems } = useContext(FavoriteIdItemContext);
+
+   let svgIcon = idFavoriteItems.includes(item) ? svgSol : svgReg;
 
    function favoriteIdHandler(itemId) {
-      console.log(typeof (itemId));
-      const indexOf = idFavoriteItem.indexOf(itemId);
-      if (indexOf === -1) {
-         setIdFavoriteItem(prevItems => [...prevItems, itemId])
-         setSvgIcon(svgSol)
+      if (!idFavoriteItems.includes(itemId)) {
+         setIdFavoriteItems((prev) => [...prev, itemId])
+         svgIcon = svgSol;
       }
       else {
-         idFavoriteItem.splice(indexOf, 1)
-         setSvgIcon(svgReg)
+         setIdFavoriteItems((prev) => prev.filter(id => id !== itemId))
+         svgIcon = svgReg
       }
    }
 
    return ({
       svgIcon,
       favoriteIdHandler,
-      idFavoriteItem
+      idFavoriteItems
    })
 }

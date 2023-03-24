@@ -1,23 +1,21 @@
 import React, { useState } from 'react'
+import Nav from '../../components/common/Nav/Nav'
 import Categories from './categories/categories'
 import Products from './products/products'
-// import { FavoriteIdItemContextProvider } from '../../contexts/FavoriteIdItemContext'
-
 
 export default function ProductsPage() {
    const [category, setCategory] = useState('All items')
 
    const handlerCategoryClick = (event) => {
-      setCategory(event);
+      event === category ? setCategory('All items') : setCategory(event);
    }
 
    return (
       <div>
+         <Nav />
          <h2 className='headTitle'>PRODUCTS</h2>
          <Categories onClick={handlerCategoryClick} activeCategory={category} />
-         {/* <FavoriteIdItemContextProvider> */}
          <Products prodCategory={category} />
-         {/* </FavoriteIdItemContextProvider> */}
       </div>
    )
 }

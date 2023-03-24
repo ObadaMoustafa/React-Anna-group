@@ -1,15 +1,13 @@
 import Product from './product'
-import React, { useEffect, useContext } from 'react'
+import React, { useEffect } from 'react'
 import ErrorMessage from '../../../components/common/Error/ErrorMessage'
 import '../css/product.css'
 import Spinner from '../../../components/common/Spinner/Spinner'
 import useFetch from '../../../hooks/useFetch'
-import { FavoriteIdItemContext } from '../../../contexts/FavoriteIdItemContext';
+import { Link } from 'react-router-dom'
 
 
 function Products({ prodCategory }) {
-   const { idFavoriteItem } = useContext(FavoriteIdItemContext);
-   console.log(idFavoriteItem);
 
    const { data, isLoading, errorObj, getFetch } = useFetch()
    const url = (prodCategory !== 'All items')
@@ -23,6 +21,7 @@ function Products({ prodCategory }) {
 
    return (
       <div>
+         <Link to='/products/favorite'>Go to favorite</Link>
          {errorObj.isError && <ErrorMessage errorMsg={errorObj.message} />}
          <div className='productList-conteiner'>
             <div className='productList'>

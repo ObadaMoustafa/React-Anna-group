@@ -5,6 +5,7 @@ import './css/singleProductPage.css'
 import ErrorMessage from '../../components/common/Error/ErrorMessage';
 import Spinner from '../../components/common/Spinner/Spinner';
 import useFetch from '../../hooks/useFetch';
+import Nav from '../../components/common/Nav/Nav';
 
 export default function ProductDatail() {
    const { itemId } = useParams();
@@ -16,10 +17,13 @@ export default function ProductDatail() {
    const itemInfo = data;
 
    return (
-      <div className='singleItemContainer'>
-         {errorObj.isError && <ErrorMessage errorMsg={errorObj.message} />}
-         {isLoading && <Spinner />}
-         {itemInfo && <SingleProduct itemInfo={itemInfo} />}
+      <div>
+         <div className='singleItemContainer'>
+            <Nav />
+            {errorObj.isError && <ErrorMessage errorMsg={errorObj.message} />}
+            {isLoading && <Spinner />}
+            {itemInfo && <SingleProduct itemInfo={itemInfo} />}
+         </div>
       </div>
    )
 }

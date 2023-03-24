@@ -20,7 +20,11 @@ function App() {
                   <ProductsPage />
                </FavoriteIdItemContextProvider>
             } />
-            <Route path='/products/product/:itemId' element={<SingleProductPage />} />
+            <Route path='/products/product/:itemId' element={
+               <FavoriteIdItemContextProvider>
+                  <SingleProductPage />
+               </FavoriteIdItemContextProvider>
+            } />
             <Route path='/products/favorite' element={
                <FavoriteIdItemContextProvider>
                   < FavoriteItemsPage />

@@ -3,10 +3,10 @@ import React, { createContext, useState } from 'react'
 export const FavoriteIdItemContext = createContext();
 
 export function FavoriteIdItemContextProvider(props) {
-   const [idFavoriteItem, setIdFavoriteItem] = useState([]);
+   const [idFavoriteItems, setIdFavoriteItems] = useState([]);
 
    return (
-      <FavoriteIdItemContext.Provider value={{ idFavoriteItem, setIdFavoriteItem }}>
+      <FavoriteIdItemContext.Provider value={{ idFavoriteItems, setIdFavoriteItems }}>
          {props.children}
       </FavoriteIdItemContext.Provider>
    )

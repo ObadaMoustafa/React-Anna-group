@@ -1,5 +1,6 @@
 .singleItemContainer {
    display: flex;
+   flex-wrap: wrap;
    justify-content: center;
    height: 100vh;
 }
@@ -34,14 +35,31 @@
 
 }
 
+.singleItemImgWrap {
+   display: flex;
+   position: relative;
+   grid-area: image;
+   width: 100%;
+}
+
+
 .singleItemImage {
    display: flex;
-   grid-area: image;
    object-fit: contain;
    max-height: 400px;
    width: 100%;
    box-sizing: border-box;
 }
+
+.singleItemHeart {
+   position: absolute;
+   top: 0px;
+   right: 0px;
+   height: 35px;
+   width: 35px;
+}
+
+
 
 @media (min-width: 600px) {
    .singleItemWrap {

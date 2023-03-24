@@ -1,5 +1,6 @@
 .App {
-   padding: 2px;
+   display: flex;
+   width: 100%;
 }
 
 .headTitle {
