@@ -89,3 +89,48 @@
 // if (loading) return "Loading ...";
 // if (error) return "Error!";
 /////////////////////////////////////////----------AXIOS_end----------///////////////////////////////////////////////////////
+
+import React from "react";
+import { useState } from "react";
+import { useEffect } from "react";
+import { useContext } from "react";
+import { FavoriteContext } from "../context/FavoriteContext";
+
+// import { ReactComponent as Heart } from "../assets/heart-regular.svg";
+// import { ReactComponent as HeartActive } from "../assets/heart-solid.svg";
+// import regularHeart from "../assets/heart-regular.svg";
+////////////////////////////////////////////////////////////////////////////////
+// import "./components-css/btn.css";
+// export const FavoriteBtn = (itemId) => {
+//   const { favoriteList, setFavoriteList } = useContext(FavoriteContext);
+//   const [favoriteState, setFavoriteState] = useState(false);
+//   console.log("itemId", itemId);
+
+//   const addToFavorites = (itemId) => {
+//     setFavoriteList((prevFavoriteList) => [...prevFavoriteList, { itemId }]);
+//   };
+
+//   const removeFromFavorites = () => {
+//     setFavoriteList(favoriteList.filter((item) => item.itemId !== itemId));
+//   };
+
+//   const changeFavoriteList = (favoriteState) => {
+//     setFavoriteState((favoriteState) => !favoriteState);
+//     addToFavorites();
+//   };
+//   useEffect(() => {
+//     changeFavoriteList();
+//   }, []);
+
+//   // console.log("favoriteState", favoriteState);
+//   console.log("favoriteList", favoriteList);
+//   return (
+//     <button className="favorite-btn" onClick={changeFavoriteList}>
+//       {/* <h1>{value}</h1>
+//           {value} */}
+//       {/* <Heart className="heart" />
+//       <HeartActive className="heart" /> */}
+//       Button
+//     </button>
+//   );
+// };

@@ -1,10 +1,10 @@
 import { useState } from "react";
+
 import CategoryList from "../CategoryList";
 import ProductList from "../ProductList";
 
 function ProductsListPage() {
   const [selectedCategory, setCategory] = useState("All products");
-  // console.log(selectedCategory);
   const pageTitle =
     selectedCategory !== "All products"
       ? `${selectedCategory} PRODUCTS`

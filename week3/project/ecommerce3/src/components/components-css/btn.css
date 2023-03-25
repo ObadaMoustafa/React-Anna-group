@@ -1,0 +1,12 @@
+.favorite-btn {
+  background-color: #fff;
+  border: none;
+  margin: 15px;
+  display: block;
+  margin-left: 260px;
+  width: 30px;
+  background-color: aquamarine;
+}
+.heart {
+  width: 20px;
+}

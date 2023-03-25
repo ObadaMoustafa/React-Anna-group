@@ -1,5 +1,7 @@
 .categories-block {
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 .category-btn {
   width: 100px;
@@ -7,13 +9,15 @@
   background-color: #efeff0;
   cursor: pointer;
   font-weight: 700;
-  margin: 2px;
+  margin: 5px;
+  border-radius: 4px;
 }
 .category-btn-selected {
   width: 100px;
   height: 50px;
-  background-color: #bdbdc1;
+  background-color: olivedrab;
   cursor: pointer;
   font-weight: 700;
-  margin: 2px;
+  margin: 5px;
+  border-radius: 4px;
 }

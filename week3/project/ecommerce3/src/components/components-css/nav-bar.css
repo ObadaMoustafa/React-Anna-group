@@ -1,0 +1,16 @@
+.nav-bar {
+  text-align: right;
+  padding: 25px 20px;
+}
+.nav-bar-link {
+  padding: 8px 16px;
+  color: black;
+  font-weight: bolder;
+  text-decoration: none;
+}
+.nav-bar-link:hover {
+  color: blueviolet;
+}
+.nav-bar-link-active {
+  color: olivedrab;
+}

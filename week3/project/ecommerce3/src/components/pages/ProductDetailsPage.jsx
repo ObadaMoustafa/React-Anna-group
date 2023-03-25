@@ -1,53 +1,35 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import ProductCard from "../ProductCard";
 import { useParams } from "react-router-dom";
 import Error from "../ErrorMsg";
 import Loading from "../Loading";
+import { useFetch } from "../../hooks/useFetch";
+// import { useContext } from "react";
+// import { FavoriteContext } from "../../context/FavoriteContext";
 
 function ProductDetailsPage() {
+  // const { favoriteList, setFavoriteList } = useContext(FavoriteContext);
+  // console.log("favorite", favoriteList);
   const { productId } = useParams();
-  //   console.log(productId);
-  const [product, setProduct] = useState();
-  const [errorObj, setErrorObj] = useState({ isError: true, msg: "" });
-  const [isLoading, setIsLoading] = useState(false);
 
-  async function getProductDetails(productId) {
-    try {
-      setIsLoading(true);
-      const response = await fetch(
-        `https://dummyjson.com/products/${productId}`
-      );
-      if (!response.ok)
-        throw new Error(
-          `Error happened: ${response.status} ${response.statusText}`
-        );
-      const data = await response.json();
-      // console.log(data);
-      setProduct(data);
-    } catch (error) {
-      setErrorObj({ isError: true, msg: error.message });
-    } finally {
-      setIsLoading(false);
-    }
-  }
+
+  const { data, errorObj, isLoading, performFetch } = useFetch();
+
   useEffect(() => {
-    getProductDetails(productId);
+    performFetch(`https://dummyjson.com/products/${productId}`);
+    // eslint-disable-next-line
   }, [productId]);
-
-  // useEffect(() => {
-  //   console.log(errorObj);
-  // }, [errorObj]);
 
   return (
     <div className="product-card">
       {errorObj.isError && <Error msg={errorObj.msg} />}
       {isLoading && <Loading />}
-      {product && (
+      {data && (
         <ProductCard
-          id={product.id}
-          title={product.title}
-          img={product.images[0]}
-          description={product.description}
+          id={data.id}
+          title={data.title}
+          img={data.images[0]}
+          description={data.description}
         />
       )}
     </div>
