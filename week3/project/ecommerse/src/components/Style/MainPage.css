@@ -1,0 +1,12 @@
+.headerPage{
+    display: flex;
+    justify-content: space-between ;
+}
+.productsLink{
+    margin-right: -750px ;
+}
+
+/* .headerlinks{
+    display: flex;
+    flex-direction: row;
+} */

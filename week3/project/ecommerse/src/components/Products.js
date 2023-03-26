@@ -3,6 +3,7 @@ import './Style/products.css'
 import {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import ErrorMessage from '../pages/ErrorMessage';
+// import "heart-regulat.svg" from './img/heart-regular.svg'
 
 export default function Products({activeCategory}) {
     
@@ -35,16 +36,14 @@ export default function Products({activeCategory}) {
       <>
           {errorObj.isError && <ErrorMessage errorMsg={errorObj.message} />}
           <div className='wrapper'>
+          <img src='./img/heart-regular.svg'></img>
         <Link to = {`/oneproduct/${id}`}  key={id}>
         <li className='products'>
-            {/* <div className='wrapper'> */}
               <img className='product-image' src={img} alt="img"></img>
               <span className='product-title'>{title}</span>
-            {/* </div> */}
         </li>
         </Link>
         </div>
-  
         </>
     );
 }
