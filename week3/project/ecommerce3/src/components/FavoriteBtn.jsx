@@ -13,7 +13,7 @@ const FavoriteBtn = (id) => {
   const { favoriteIdList, setFavoriteIdList } = useContext(FavoriteContext);
 
   const isFavoriteItem = favoriteIdList.includes(productId);
-  // console.log(isFavoriteItem);
+ 
   const heart = isFavoriteItem ? activeHeart : regularHeart;
   function favoriteHandler() {
     if (!isFavoriteItem) {

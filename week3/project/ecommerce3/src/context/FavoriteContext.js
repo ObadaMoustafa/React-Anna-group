@@ -6,7 +6,7 @@ export const FavoriteContext = createContext();
 export const FavoriteContextProvider = ({ children }) => {
   const [favoriteIdList, setFavoriteIdList] = useState([]);
 
-  useEffect(() => console.log(favoriteIdList), [favoriteIdList]);
+  // useEffect(() => console.log(favoriteIdList), [favoriteIdList]);
 
   const sharedValue = {
     favoriteIdList,

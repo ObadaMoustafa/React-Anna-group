@@ -8,26 +8,36 @@ import Product from "../Product";
 
 const FavoriteItemsPage = () => {
   const { favoriteIdList } = useContext(FavoriteContext);
-  console.log("favID", favoriteIdList, favoriteIdList.length);
+  // console.log("favID", favoriteIdList, favoriteIdList.length);
 
   const { errorObj, isLoading, performFetch } = useFetch();
   const [favoriteProduct, setFavoriteProduct] = useState([]);
 
   async function getFetch() {
-    for (let i = 0; i < favoriteIdList.length; i++) {
-      console.log(favoriteIdList);
-      let data = await performFetch(
-        `https://dummyjson.com/products/${favoriteIdList[i]}`
-      );
-      //  setFavoriteProduct([data]);
-      setFavoriteProduct((prev) => [...prev, data]);
+    // for (let i = 0; i < favoriteIdList.length; i++) {
+    //   console.log(favoriteIdList);
+    //   let data = await performFetch(
+    //     `https://dummyjson.com/products/${favoriteIdList[i]}`
+    //   );
+    //   //  setFavoriteProduct([data]);
+    //   setFavoriteProduct((prev) => [...prev, data]);
+    // }
+
+    const arrayOfRequests = favoriteIdList.map(async (id) =>
+      performFetch(`https://dummyjson.com/products/${id}`)
+    );
+    try {
+      const data = await Promise.all(arrayOfRequests);
+      setFavoriteProduct(data);
+    } catch (error) {
+      console.log(error.message);
     }
   }
 
   useEffect(() => {
     getFetch();
   }, []);
-  console.log("favoriteProduct", favoriteProduct);
+  // console.log("favoriteProduct", favoriteProduct);
 
   return (
     <div>
@@ -41,7 +51,7 @@ const FavoriteItemsPage = () => {
 
       {
         <ul className="products-list">
-          {favoriteProduct &&
+          {favoriteProduct && !errorObj.isError &&!isLoading &&
             favoriteProduct.map((item) => {
               const { id, images, title } = item;
               return <Product title={title} img={images[0]} id={id} key={id} />;
