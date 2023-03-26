@@ -1,22 +1,25 @@
-import { useContext } from 'react'
-import { FavoriteIdItemContext } from '../contexts/FavoriteIdItemContext';
+import { useContext, useEffect, useState } from 'react'
+import { FavoriteIdItemContext } from '../contexts/FavoriteIdItemContext'
 import svgReg from '../images/heart-regular.svg'
-import svgSol from '../images/heart-solid.svg';
+import svgSol from '../images/heart-solid.svg'
 
-export default function useFavoriteItems(item) {
+export default function useFavoriteItems(itemId) {
 
-   const { idFavoriteItems, setIdFavoriteItems } = useContext(FavoriteIdItemContext);
+   const { idFavoriteItems, setIdFavoriteItems } = useContext(FavoriteIdItemContext)
+   const [svgIcon, setSvgItem] = useState(() => idFavoriteItems.includes(itemId) ? svgSol : svgReg)
 
-   let svgIcon = idFavoriteItems.includes(item) ? svgSol : svgReg;
+   // eslint-disable-next-line
+   useEffect(() => { idFavoriteItems.includes(itemId) ? setSvgItem(svgSol) : setSvgItem(svgReg) }, [itemId])
+
 
    function favoriteIdHandler(itemId) {
       if (!idFavoriteItems.includes(itemId)) {
          setIdFavoriteItems((prev) => [...prev, itemId])
-         svgIcon = svgSol;
+         setSvgItem(svgSol)
       }
       else {
          setIdFavoriteItems((prev) => prev.filter(id => id !== itemId))
-         svgIcon = svgReg
+         setSvgItem(svgReg)
       }
    }
 

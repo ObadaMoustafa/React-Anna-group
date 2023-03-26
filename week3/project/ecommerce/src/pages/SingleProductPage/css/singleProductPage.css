@@ -39,7 +39,8 @@
    display: flex;
    position: relative;
    grid-area: image;
-   width: 100%;
+   /* width: 100%; */
+   padding: 35px;
 }
 
 

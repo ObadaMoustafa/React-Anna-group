@@ -1,8 +1,7 @@
 import React from 'react'
-import useFavoriteItems from '../../../hooks/useFavoriteItems';
+import useFavoriteItems from '../../../hooks/useFavoriteItems'
 
 export default function SingleProduct({ itemInfo }) {
-
    const { svgIcon, favoriteIdHandler } = useFavoriteItems(itemInfo.id)
 
    return (

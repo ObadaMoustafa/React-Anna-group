@@ -26,6 +26,7 @@
 .productList {
    display: flex;
    flex-wrap: wrap;
+   /* justify-content: center; */
    max-width: 1700px;
    min-width: 1350px;
    padding: 10px;

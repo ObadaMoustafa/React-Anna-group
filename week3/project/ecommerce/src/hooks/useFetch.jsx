@@ -1,24 +1,24 @@
 import { useState } from 'react'
 
 export default function useFetch() {
-   const [data, setData] = useState([]);
-   const [isLoading, setIsLoading] = useState(false);
+   const [data, setData] = useState([])
+   const [isLoading, setIsLoading] = useState(false)
    const [errorObj, setErrorObj] = useState({ isError: false, message: '' })
 
    async function getFetch(url) {
       try {
-         setIsLoading(true);
+         setIsLoading(true)
          setErrorObj({ isError: false, message: '' })
-         const response = await fetch(url);
-         const data = await response.json();
-         // return data;
-         setData(data);
+         const response = await fetch(url)
+         const data = await response.json()
+         setData(data)
+         return data
       }
       catch (error) {
          setErrorObj({ isError: true, message: error.message })
       }
       finally {
-         setIsLoading(false);
+         setIsLoading(false)
       }
    }
 
