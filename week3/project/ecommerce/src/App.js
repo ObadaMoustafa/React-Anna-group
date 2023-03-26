@@ -1,11 +1,11 @@
-import './App.css';
-import { Routes, Route } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
+import './App.css'
+import { FavoriteIdItemContextProvider } from './contexts/FavoriteIdItemContext'
+import FavoriteItemsPage from './pages/FavoriteItemsPage/FavoriteItemsPage'
+import HomePage from './pages/HomePage/HomePage'
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage'
 import ProductsPage from './pages/ProductsPage/ProductsPage'
 import SingleProductPage from './pages/SingleProductPage/SingleProductPage'
-import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
-import HomePage from './pages/HomePage/HomePage';
-import FavoriteItemsPage from './pages/FavoriteItemsPage/FavoriteItemsPage';
-import { FavoriteIdItemContextProvider } from './contexts/FavoriteIdItemContext'
 
 
 
@@ -14,7 +14,11 @@ function App() {
    return (
       <div className="App">
          <Routes>
-            <Route path='/' element={<HomePage />} />
+            <Route path='/' element={
+               <FavoriteIdItemContextProvider>
+                  <HomePage />
+               </FavoriteIdItemContextProvider>
+            } />
             <Route path='/products' element={
                <FavoriteIdItemContextProvider>
                   <ProductsPage />
@@ -33,6 +37,6 @@ function App() {
             <Route path='*' element={<NotFoundPage />} />
          </Routes>
       </div>
-   );
+   )
 }
-export default App;
+export default App

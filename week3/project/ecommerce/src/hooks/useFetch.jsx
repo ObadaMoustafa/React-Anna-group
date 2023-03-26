@@ -10,6 +10,7 @@ export default function useFetch() {
          setIsLoading(true)
          setErrorObj({ isError: false, message: '' })
          const response = await fetch(url)
+         if (!response.ok) throw new Error(`Error ${response.status} ${response.message}`)
          const data = await response.json()
          setData(data)
          return data
@@ -22,10 +23,10 @@ export default function useFetch() {
       }
    }
 
-   return ({
+   return {
       data,
       isLoading,
       errorObj,
       getFetch
-   })
+   }
 }

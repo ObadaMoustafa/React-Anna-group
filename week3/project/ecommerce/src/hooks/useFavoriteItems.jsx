@@ -23,9 +23,9 @@ export default function useFavoriteItems(itemId) {
       }
    }
 
-   return ({
+   return {
       svgIcon,
       favoriteIdHandler,
       idFavoriteItems
-   })
+   }
 }
