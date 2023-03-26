@@ -2,7 +2,6 @@ import "./components-css/product.css";
 import { Link } from "react-router-dom";
 import FavoriteBtn from "./FavoriteBtn";
 
-
 function Product({ id, img, title }) {
   return (
     <li className="product-item" key={id}>

@@ -1,36 +1,37 @@
 import React from "react";
 import { useContext } from "react";
 import { FavoriteContext } from "../context/FavoriteContext";
-// import regularHeart from "../assets/heart-regular.svg";
-// import activeHeart from "../assets/heart-solid.svg";
-import { ReactComponent as RegularHeart } from "../assets/heart-regular.svg";
-import { ReactComponent as ActiveHeart } from "../assets/heart-solid.svg";
+import regularHeart from "../assets/heart-regular.svg";
+import activeHeart from "../assets/heart-solid.svg";
+// import { ReactComponent as RegularHeart } from "../assets/heart-regular.svg";
+// import { ReactComponent as ActiveHeart } from "../assets/heart-solid.svg";
 import "./components-css/btn.css";
 
-const FavoriteBtn = (itemId) => {
-  const { favoriteIdList, setFavoriteIdList } = useContext(FavoriteContext);
-  const isFavoriteItem = favoriteIdList.includes(itemId);
+const FavoriteBtn = (id) => {
+  const productId = id.itemId;
 
+  const { favoriteIdList, setFavoriteIdList } = useContext(FavoriteContext);
+
+  const isFavoriteItem = favoriteIdList.includes(productId);
+  // console.log(isFavoriteItem);
+  const heart = isFavoriteItem ? activeHeart : regularHeart;
   function favoriteHandler() {
-    const isFavoriteItem = favoriteIdList.includes(itemId);
     if (!isFavoriteItem) {
-      setFavoriteIdList([...favoriteIdList, itemId]);
+      setFavoriteIdList([...favoriteIdList, productId]);
     } else {
-      setFavoriteIdList(favoriteIdList.filter((item) => item !== itemId));
+      setFavoriteIdList(favoriteIdList.filter((item) => item !== productId));
     }
   }
-  // const heart = isFavoriteItem ? activeHeart : regularHeart;
-  // console.log("result", favoriteList);
-  // console.log(isFavoriteItem, itemId, favoriteList);
 
   return (
     <button className="favorite-btn" onClick={favoriteHandler}>
-      {/* <img className="" src={heart} alt="heart" width={"20"} /> */}
-      {isFavoriteItem ? (
+      <img className="heart" src={heart} alt="heart" />
+
+      {/* {isFavoriteItem ? (
         <ActiveHeart className="heart" />
       ) : (
         <RegularHeart className="heart" />
-      )}
+      )} */}
     </button>
   );
 };

@@ -15,9 +15,11 @@ const FavoriteItemsPage = () => {
 
   async function getFetch() {
     for (let i = 0; i < favoriteIdList.length; i++) {
+      console.log(favoriteIdList);
       let data = await performFetch(
-        `https://dummyjson.com/products/${favoriteIdList[i].itemId}`
+        `https://dummyjson.com/products/${favoriteIdList[i]}`
       );
+      //  setFavoriteProduct([data]);
       setFavoriteProduct((prev) => [...prev, data]);
     }
   }
@@ -25,7 +27,7 @@ const FavoriteItemsPage = () => {
   useEffect(() => {
     getFetch();
   }, []);
-  // console.log("favoriteProduct", favoriteProduct);
+  console.log("favoriteProduct", favoriteProduct);
 
   return (
     <div>
