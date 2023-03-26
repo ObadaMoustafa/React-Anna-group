@@ -16,6 +16,7 @@ export const useFetch = () => {
         );
       const data = await response.json();
       setData(data);
+      return data;
     } catch (error) {
       setErrorObj({ isError: true, msg: error.message });
     } finally {

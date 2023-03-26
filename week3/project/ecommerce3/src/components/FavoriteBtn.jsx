@@ -1,6 +1,4 @@
 import React from "react";
-import { useState } from "react";
-import { useEffect } from "react";
 import { useContext } from "react";
 import { FavoriteContext } from "../context/FavoriteContext";
 // import regularHeart from "../assets/heart-regular.svg";
@@ -10,26 +8,20 @@ import { ReactComponent as ActiveHeart } from "../assets/heart-solid.svg";
 import "./components-css/btn.css";
 
 const FavoriteBtn = (itemId) => {
-  const { favoriteList, setFavoriteList, favoriteItem, setFavoriteItem } =
-    useContext(FavoriteContext);
-  const isFavoriteItem = favoriteList.includes(itemId);
+  const { favoriteIdList, setFavoriteIdList } = useContext(FavoriteContext);
+  const isFavoriteItem = favoriteIdList.includes(itemId);
 
   function favoriteHandler() {
+    const isFavoriteItem = favoriteIdList.includes(itemId);
     if (!isFavoriteItem) {
-      setFavoriteList([...favoriteList, itemId]);
-      // setFavoriteItem(true);
-      // setHeart(activeHeart);
+      setFavoriteIdList([...favoriteIdList, itemId]);
     } else {
-      setFavoriteList(favoriteList.filter((item) => item !== itemId));
-      // setFavoriteItem(false)
-      // setHeart(regularHeart);
+      setFavoriteIdList(favoriteIdList.filter((item) => item !== itemId));
     }
-    console.log("click", itemId, favoriteList);
   }
   // const heart = isFavoriteItem ? activeHeart : regularHeart;
-
-  console.log("result", favoriteList);
-  console.log(isFavoriteItem, itemId, favoriteList);
+  // console.log("result", favoriteList);
+  // console.log(isFavoriteItem, itemId, favoriteList);
 
   return (
     <button className="favorite-btn" onClick={favoriteHandler}>
@@ -43,23 +35,3 @@ const FavoriteBtn = (itemId) => {
   );
 };
 export default FavoriteBtn;
-// const changeFavoriteList = () => {}
-//
-
-// Add works from second click
-// function addToFavorites() {
-//   setFavoriteList((prevFavoriteList) => [...prevFavoriteList, { itemId }]);
-// }
-
-// function removeFromFavorites() {
-//   setFavoriteList(favoriteList.filter((item) => item.itemId !== itemId));
-// }
-
-// function favoriteHandler() {
-//   if (!isFavoriteItem) {
-//     addToFavorites();
-//   } else removeFromFavorites();
-
-//   isFavoriteItem ? console.log("like") : console.log("dislike");
-//   console.log("click", itemId, favoriteList);
-// }
