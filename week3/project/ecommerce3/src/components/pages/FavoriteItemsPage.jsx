@@ -8,36 +8,77 @@ import Product from "../Product";
 
 const FavoriteItemsPage = () => {
   const { favoriteIdList } = useContext(FavoriteContext);
-  // console.log("favID", favoriteIdList, favoriteIdList.length);
 
-  const { errorObj, isLoading, performFetch } = useFetch();
-  const [favoriteProduct, setFavoriteProduct] = useState([]);
+  const [favoriteProductList, setFavoriteProductList] = useState([]);
+  // ////////////////////////////////////////////////////////////////returns 2 results
+  // const { errorObj, isLoading, performFetch } = useFetch();
+  // async function getFetch() {
+  //   for (let i = 0; i < favoriteIdList.length; i++) {
+  //     console.log(favoriteIdList);
+  //     let data = await performFetch(
+  //       `https://dummyjson.com/products/${favoriteIdList[i]}`
+  //     );
+  //     setFavoriteProduct((prev) => [...prev, data]);
+  //   }
+  // }
+  // ////////////////////////////////////////////////////////////////OBADA
+  // const { errorObj, isLoading, performFetch } = useFetch();
+  // async function getFetch() {
+  //   const arrayOfRequests = favoriteIdList.map(async (id) =>
+  //     performFetch(`https://dummyjson.com/products/${id}`)
+  //   );
+  //   try {
+  //     const data = await Promise.all(arrayOfRequests);
+  //     setFavoriteProduct(data);
+  //   } catch (error) {
+  //     console.log(error.message);
+  //   }
+  // }
 
-  async function getFetch() {
-    // for (let i = 0; i < favoriteIdList.length; i++) {
-    //   console.log(favoriteIdList);
-    //   let data = await performFetch(
-    //     `https://dummyjson.com/products/${favoriteIdList[i]}`
-    //   );
-    //   //  setFavoriteProduct([data]);
-    //   setFavoriteProduct((prev) => [...prev, data]);
-    // }
+  // useEffect(() => {
+  //   getFetch();
+  // }, [favoriteIdList]);
 
-    const arrayOfRequests = favoriteIdList.map(async (id) =>
-      performFetch(`https://dummyjson.com/products/${id}`)
+  ////////////////////////////////////////////////////////////////____3 - OK
+  // const [errorObj, setErrorObj] = useState({ isError: null, msg: "" });
+  // const [isLoading, setIsLoading] = useState(false);
+  // const allFavoritesPromise = () => {
+  //   setIsLoading(true);
+  //   setErrorObj([]);
+  //   Promise.all(
+  //     favoriteIdList.map((id) =>
+  //       fetch(`https://dummyjson.com/products/${id}`).then((response) =>
+  //         response.json()
+  //       )
+  //     )
+  //   )
+  //     .then(setFavoriteProductList)
+  //     .catch((e) => setErrorObj({ isError: true, msg: `Error happened: ${e}` }))
+  //     .finally(() => setIsLoading(false));
+  // };
+
+  // useEffect(() => {
+  //   allFavoritesPromise();
+  // }, [favoriteIdList]);
+
+  ///////////////////////////////////////////////////4
+  const [errorObj, setErrorObj] = useState({ isError: null, msg: "" });
+  const [isLoading, setIsLoading] = useState(false);
+
+  async function fP() {
+    const favoriteIdRequests = favoriteIdList.map((id) =>
+      fetch(`https://dummyjson.com/products/${id}`)
     );
-    try {
-      const data = await Promise.all(arrayOfRequests);
-      setFavoriteProduct(data);
-    } catch (error) {
-      console.log(error.message);
-    }
+    const arrayOfResponse = await Promise.all(favoriteIdRequests)
+      .then((responses) => Promise.all(responses.map((r) => r.json())))
+      .catch((e) => setErrorObj({ isError: true, msg: `Error happened: ${e}` }))
+      .finally(() => setIsLoading(false));
+    setFavoriteProductList(arrayOfResponse);
   }
 
   useEffect(() => {
-    getFetch();
-  }, []);
-  // console.log("favoriteProduct", favoriteProduct);
+    fP();
+  }, [favoriteIdList]);
 
   return (
     <div>
@@ -51,8 +92,10 @@ const FavoriteItemsPage = () => {
 
       {
         <ul className="products-list">
-          {favoriteProduct && !errorObj.isError &&!isLoading &&
-            favoriteProduct.map((item) => {
+          {favoriteProductList &&
+            !errorObj.isError &&
+            !isLoading &&
+            favoriteProductList.map((item) => {
               const { id, images, title } = item;
               return <Product title={title} img={images[0]} id={id} key={id} />;
             })}
