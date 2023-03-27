@@ -10,6 +10,7 @@ function CategoryList(props) {
 
   useEffect(() => {
     performFetch("https://dummyjson.com/products/categories");
+    // eslint-disable-next-line
   }, []);
 
   function chooseCategory(name) {
