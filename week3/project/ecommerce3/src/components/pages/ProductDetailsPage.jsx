@@ -4,14 +4,9 @@ import { useParams } from "react-router-dom";
 import Error from "../ErrorMsg";
 import Loading from "../Loading";
 import { useFetch } from "../../hooks/useFetch";
-// import { useContext } from "react";
-// import { FavoriteContext } from "../../context/FavoriteContext";
 
 function ProductDetailsPage() {
-  // const { favoriteList, setFavoriteList } = useContext(FavoriteContext);
-  // console.log("favorite", favoriteList);
   const { productId } = useParams();
-
 
   const { data, errorObj, isLoading, performFetch } = useFetch();
 

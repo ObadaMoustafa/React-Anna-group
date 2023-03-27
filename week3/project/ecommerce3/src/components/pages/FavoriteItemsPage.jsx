@@ -1,7 +1,6 @@
 import React from "react";
 import { useEffect, useContext, useState } from "react";
 import { FavoriteContext } from "../../context/FavoriteContext";
-import { useFetch } from "../../hooks/useFetch";
 import ErrorMsg from "../ErrorMsg";
 import Loading from "../Loading";
 import Product from "../Product";
@@ -10,62 +9,11 @@ const FavoriteItemsPage = () => {
   const { favoriteIdList } = useContext(FavoriteContext);
 
   const [favoriteProductList, setFavoriteProductList] = useState([]);
-  // ////////////////////////////////////////////////////////////////returns 2 results
-  // const { errorObj, isLoading, performFetch } = useFetch();
-  // async function getFetch() {
-  //   for (let i = 0; i < favoriteIdList.length; i++) {
-  //     console.log(favoriteIdList);
-  //     let data = await performFetch(
-  //       `https://dummyjson.com/products/${favoriteIdList[i]}`
-  //     );
-  //     setFavoriteProduct((prev) => [...prev, data]);
-  //   }
-  // }
-  // ////////////////////////////////////////////////////////////////OBADA
-  // const { errorObj, isLoading, performFetch } = useFetch();
-  // async function getFetch() {
-  //   const arrayOfRequests = favoriteIdList.map(async (id) =>
-  //     performFetch(`https://dummyjson.com/products/${id}`)
-  //   );
-  //   try {
-  //     const data = await Promise.all(arrayOfRequests);
-  //     setFavoriteProduct(data);
-  //   } catch (error) {
-  //     console.log(error.message);
-  //   }
-  // }
 
-  // useEffect(() => {
-  //   getFetch();
-  // }, [favoriteIdList]);
-
-  ////////////////////////////////////////////////////////////////____3 - OK
-  // const [errorObj, setErrorObj] = useState({ isError: null, msg: "" });
-  // const [isLoading, setIsLoading] = useState(false);
-  // const allFavoritesPromise = () => {
-  //   setIsLoading(true);
-  //   setErrorObj([]);
-  //   Promise.all(
-  //     favoriteIdList.map((id) =>
-  //       fetch(`https://dummyjson.com/products/${id}`).then((response) =>
-  //         response.json()
-  //       )
-  //     )
-  //   )
-  //     .then(setFavoriteProductList)
-  //     .catch((e) => setErrorObj({ isError: true, msg: `Error happened: ${e}` }))
-  //     .finally(() => setIsLoading(false));
-  // };
-
-  // useEffect(() => {
-  //   allFavoritesPromise();
-  // }, [favoriteIdList]);
-
-  ///////////////////////////////////////////////////4
   const [errorObj, setErrorObj] = useState({ isError: null, msg: "" });
   const [isLoading, setIsLoading] = useState(false);
 
-  async function fP() {
+  async function getFavorites() {
     const favoriteIdRequests = favoriteIdList.map((id) =>
       fetch(`https://dummyjson.com/products/${id}`)
     );
@@ -77,7 +25,8 @@ const FavoriteItemsPage = () => {
   }
 
   useEffect(() => {
-    fP();
+    getFavorites();
+    // eslint-disable-next-line
   }, [favoriteIdList]);
 
   return (
