@@ -1,15 +1,16 @@
 import { useFavorite } from './FavouriteProductsContext';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useParams } from 'react';
 
 
 const Favorite = () => {
+  // const {prodId} = useParams();
   const [favorite] = useFavorite();
   const [products, setProducts] = useState([]);
-
+ console.log(favorite)
   useEffect(() => {
     Promise.all(
       favorite.map((id) =>
-        fetch(`https://dummyjson.com/products${id}`).then((response) =>
+        fetch(`https://dummyjson.com/products/${id}`).then((response) =>
           response.json()
         )
       )
@@ -20,10 +21,10 @@ const Favorite = () => {
     <>
       <h1>Favorites</h1>
       <ul>
-        {products.map((product) => (
+        {products && products.map((product) => (
           <li key={product.id}>
             <img
-              src={product.image}
+              src={product.images[0]}
               alt={product.title}
               style={{ width: "100px", height: "100px" }}
             />

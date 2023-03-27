@@ -1,7 +1,7 @@
 import Category from "../components/Category";
 import Products from "../components/Products";
 import { useState } from "react";
-import { Navigation } from "./Navigation";
+// import { Navigation } from "./Navigation";
 import '../components/Style/MainPage.css'
 
 function Homepage() {

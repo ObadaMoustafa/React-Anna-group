@@ -3,10 +3,11 @@ import './Style/products.css'
 import {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import ErrorMessage from '../pages/ErrorMessage';
-// import "heart-regulat.svg" from './img/heart-regular.svg'
+import {ReactComponent as EmptyHeart} from './img/heart-regular.svg'
+import {ReactComponent as FullHeart} from './img/heart-solid.svg'
+import { useFavorite } from './FavouriteProductsContext';
 
 export default function Products({activeCategory}) {
-    
 
     const [prodData, setProdData] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
@@ -30,19 +31,32 @@ export default function Products({activeCategory}) {
       }
     useEffect(() => {getProducts(activeCategory)}, [activeCategory])
         
-  function Product({id, img, title}) {
- 
+  function Product({id, img, title}, product) {
+    const [favorite, setFavorite] = useFavorite();
+    const isFavorited = favorite.includes(id);
+    // console.log(product.id)
+    // console.log(id)
+    const onFavoriteClick = () => {
+        if (isFavorited) {
+            setFavorite(favorite.filter((id) => id !== id));
+        } else {
+            setFavorite([...favorite, id]);
+        }
+       
+    }
+//   console.log('product page', favorite)
     return(
       <>
           {errorObj.isError && <ErrorMessage errorMsg={errorObj.message} />}
           <div className='wrapper'>
-          <img src='./img/heart-regular.svg'></img>
+          <button style={{border:"none", background:"none"}} onClick={onFavoriteClick}>{isFavorited ? <FullHeart width="20" height="20" /> : <EmptyHeart width="20" height="20" />}</button>
         <Link to = {`/oneproduct/${id}`}  key={id}>
         <li className='products'>
               <img className='product-image' src={img} alt="img"></img>
               <span className='product-title'>{title}</span>
         </li>
         </Link>
+        
         </div>
         </>
     );
