@@ -31,7 +31,7 @@ export default function Products({activeCategory}) {
       }
     useEffect(() => {getProducts(activeCategory)}, [activeCategory])
         
-  function Product({id, img, title}, product) {
+  function Product({id, img, title}) {
     const [favorite, setFavorite] = useFavorite();
     const isFavorited = favorite.includes(id);
     // console.log(product.id)
@@ -49,7 +49,7 @@ export default function Products({activeCategory}) {
       <>
           {errorObj.isError && <ErrorMessage errorMsg={errorObj.message} />}
           <div className='wrapper'>
-          <button style={{border:"none", background:"none"}} onClick={onFavoriteClick}>{isFavorited ? <FullHeart width="20" height="20" /> : <EmptyHeart width="20" height="20" />}</button>
+          <button className='btn' style={{border:"none", background:"none"}} onClick={onFavoriteClick}>{isFavorited ? <FullHeart width="20" height="20" /> : <EmptyHeart width="20" height="20" />}</button>
         <Link to = {`/oneproduct/${id}`}  key={id}>
         <li className='products'>
               <img className='product-image' src={img} alt="img"></img>
@@ -63,6 +63,7 @@ export default function Products({activeCategory}) {
 }
   return ( 
     <div>
+         <h1 className='title-container--title'>Products</h1>
       {isLoading ? <div>Loading...</div> :
     <ul className='item-list'>
          { prodData.map((item) => {

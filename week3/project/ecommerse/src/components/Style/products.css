@@ -2,6 +2,9 @@
     display: flex;
     flex-wrap: wrap;
     list-style: none;
+    margin-top: 60px;
+    /* padding-bottom: 40px; */
+    /* margin-bottom: 140px; */
 }
 
 li{
@@ -15,11 +18,9 @@ li{
     margin-block-end: 0;
     margin-block-start: 0;
     padding-inline-start: 0;
-   
-    
+    margin-bottom: 60px;  
 }
 .wrapper{
-    display: flex;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -49,4 +50,10 @@ li{
     padding: 5px 0;
     height: 60px;
     box-sizing: border-box;
+    margin-bottom: 100px;
+}
+
+.btn{
+    margin-bottom: 20px;
+    margin-left: -200px;
 }

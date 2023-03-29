@@ -1,6 +1,6 @@
 import { useFavorite } from './FavouriteProductsContext';
 import { useState, useEffect, useParams } from 'react';
-
+import "../components/Style/Favorite-product.css"
 
 const Favorite = () => {
   // const {prodId} = useParams();
@@ -19,14 +19,13 @@ const Favorite = () => {
 
   return (
     <>
-      <h1>Favorites</h1>
-      <ul>
+      <h1 className='fatourite-title'>Favorites</h1>
+      <ul className="favorite-product">
         {products && products.map((product) => (
-          <li key={product.id}>
+          <li className='favorite-item-list' key={product.id}>
             <img
               src={product.images[0]}
               alt={product.title}
-              style={{ width: "100px", height: "100px" }}
             />
             {product.title}
           </li>

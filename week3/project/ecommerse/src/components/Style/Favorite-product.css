@@ -1,0 +1,26 @@
+.favorite-product{
+display: flex;
+flex-direction: column;
+flex-wrap: wrap;
+width: auto;
+}
+
+.favorite-item-list{
+    display: list-item;
+    flex-direction: column;
+    height: 100%;
+    flex-wrap: wrap;
+}
+
+.favorite-product img{
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+}
+
+.fatourite-title{
+    display: flex;
+    /* position: relative; */
+    margin-top: -50px;
+    margin-left: 20px;
+}
